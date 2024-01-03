@@ -1,0 +1,53 @@
+public class HealthBar extends Actor
+{
+    /**
+     * Act - do whatever the HealthBar wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    
+    int health = 100;
+    int healthBarWidth = 100;
+    int healthBarHeight = 10;
+    int pixelsPerHealthPoint = (int)healthBarWidth/health;
+    
+ public void setHealth(int value) {
+        health = value;
+        updateHealthBar();
+    }
+   
+        
+ public HealthBar()
+    {
+        updateHealthBar();
+    }
+    
+
+private void updateHealthBar(){
+    setImage(new GreenfootImage(healthBarWidth + 2,healthBarHeight + 2));
+        GreenfootImage myImage = getImage();
+        myImage.setColor(Color.WHITE);
+        myImage.drawRect(0,0, healthBarWidth + 1, healthBarHeight + 1);
+        myImage.setColor(Color.RED);
+        myImage.fillRect(1,1, health*pixelsPerHealthPoint, healthBarHeight);
+}
+    
+ 
+
+
+    //private GreenfootImage GamerhealthBar = new GreenfootImage(100, 10);
+}
+
+    
+    
+    //private void checkCollision() {
+        //Actor enemyPunch = getOneIntersectingObject(EnemyStance.class);
+        //if (enemyPunch != null) {
+            // Gamer got hit by Enemy Punch
+           // health -= 5; // Adjust the amount of health to decrease
+           // updateHealthBar();
+           // if (health <= 0) {
+                // Gamer is knocked out or defeated 
+               // getWorld().removeObject(this); // Remove the Gamer from the world
+            //}
+       // }
+    //}
